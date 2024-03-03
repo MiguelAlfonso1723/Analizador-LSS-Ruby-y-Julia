@@ -10,5 +10,5 @@ https://julialang-s3.julialang.org/bin/winnt/x64/1.10/julia-1.10.2-win64.exe
 
 Hecho por:
 
-Miguel Angel Alfonso
+Miguel Angel Alfonso y
 Miguel Angel Gomez
