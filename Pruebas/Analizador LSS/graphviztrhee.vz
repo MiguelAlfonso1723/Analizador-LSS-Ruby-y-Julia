@@ -1,0 +1,127 @@
+digraph G {
+	3[label= nodo_nulo]
+	4[label= nodo_nulo]
+	5[label= nodo_nulo]
+	17[label= x]
+	18[label= ":="]
+	22[label= m]
+	21[label= factor1]
+	21 -> 22
+	20[label= term1]
+	20 -> 21
+	19[label= expression1]
+	19 -> 20
+	16[label= statement1]
+	16 -> 17
+	16 -> 18
+	16 -> 19
+	15[label= statementList1]
+	15 -> 16
+	24[label= y]
+	25[label= ":="]
+	29[label= n]
+	28[label= factor1]
+	28 -> 29
+	27[label= term1]
+	27 -> 28
+	26[label= expression1]
+	26 -> 27
+	23[label= statement1]
+	23 -> 24
+	23 -> 25
+	23 -> 26
+	14[label= statementList2]
+	14 -> 15
+	14 -> 23
+	31[label= multiply]
+	30[label= statement2]
+	30 -> 31
+	13[label= statementList2]
+	13 -> 14
+	13 -> 30
+	33[label= x]
+	34[label= ":="]
+	38[label= 25]
+	37[label= factor2]
+	37 -> 38
+	36[label= term1]
+	36 -> 37
+	35[label= expression1]
+	35 -> 36
+	32[label= statement1]
+	32 -> 33
+	32 -> 34
+	32 -> 35
+	12[label= statementList2]
+	12 -> 13
+	12 -> 32
+	40[label= y]
+	41[label= ":="]
+	45[label= 3]
+	44[label= factor2]
+	44 -> 45
+	43[label= term1]
+	43 -> 44
+	42[label= expression1]
+	42 -> 43
+	39[label= statement1]
+	39 -> 40
+	39 -> 41
+	39 -> 42
+	11[label= statementList2]
+	11 -> 12
+	11 -> 39
+	47[label= divide]
+	46[label= statement2]
+	46 -> 47
+	10[label= statementList2]
+	10 -> 11
+	10 -> 46
+	49[label= x]
+	50[label= ":="]
+	54[label= 84]
+	53[label= factor2]
+	53 -> 54
+	52[label= term1]
+	52 -> 53
+	51[label= expression1]
+	51 -> 52
+	48[label= statement1]
+	48 -> 49
+	48 -> 50
+	48 -> 51
+	9[label= statementList2]
+	9 -> 10
+	9 -> 48
+	56[label= y]
+	57[label= ":="]
+	61[label= 36]
+	60[label= factor2]
+	60 -> 61
+	59[label= term1]
+	59 -> 60
+	58[label= expression1]
+	58 -> 59
+	55[label= statement1]
+	55 -> 56
+	55 -> 57
+	55 -> 58
+	8[label= statementList2]
+	8 -> 9
+	8 -> 55
+	63[label= gcd]
+	62[label= statement2]
+	62 -> 63
+	7[label= statementList2]
+	7 -> 8
+	7 -> 62
+	6[label= statement3]
+	6 -> 7
+	2[label= block]
+	2 -> 3
+	2 -> 4
+	2 -> 5
+	2 -> 6
+	1[label= program]
+	1->2
+	}
