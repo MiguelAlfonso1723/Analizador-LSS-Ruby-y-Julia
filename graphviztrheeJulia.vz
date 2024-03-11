@@ -1,0 +1,169 @@
+digraph G {
+	10[label= n]
+	11[label= "="]
+	15[label= 8]
+	14[label= factorNumber]
+	14 -> 15
+	13[label= term1]
+	13 -> 14
+	12[label= expression1]
+	12 -> 13
+	9[label= statement1]
+	9 -> 10
+	9 -> 11
+	9 -> 12
+	8[label= statementLis1]
+	8 -> 9
+	17[label= x]
+	18[label= "="]
+	23[label= "rand"]
+	22[label= functionRandom]
+	22 -> 23
+	28[label= n]
+	27[label= factorId]
+	27 -> 28
+	26[label= term1]
+	26 -> 27
+	25[label= expression1]
+	25 -> 26
+	24[label= optionList1]
+	24 -> 25
+	21[label= factor7]
+	21 -> 22
+	21 -> 24
+	20[label= term1]
+	20 -> 21
+	19[label= expression1]
+	19 -> 20
+	16[label= statement1]
+	16 -> 17
+	16 -> 18
+	16 -> 19
+	7[label= statementLis1]
+	7 -> 8
+	7 -> 16
+	30[label= sumx]
+	31[label= "="]
+	36[label= "zeros"]
+	35[label= functionZeros]
+	35 -> 36
+	41[label= n]
+	40[label= factorId]
+	40 -> 41
+	39[label= term1]
+	39 -> 40
+	38[label= expression1]
+	38 -> 39
+	37[label= optionList1]
+	37 -> 38
+	34[label= factor7]
+	34 -> 35
+	34 -> 37
+	33[label= term1]
+	33 -> 34
+	32[label= expression1]
+	32 -> 33
+	29[label= statement1]
+	29 -> 30
+	29 -> 31
+	29 -> 32
+	6[label= statementLis1]
+	6 -> 7
+	6 -> 29
+	43[label= sumx]
+	48[label= 1]
+	47[label= factorNumber]
+	47 -> 48
+	46[label= term1]
+	46 -> 47
+	45[label= expression1]
+	45 -> 46
+	44[label= arrayIdList2]
+	44 -> 45
+	49[label= "="]
+	50[label= "="]
+	42[label= statement15]
+	42 -> 43
+	42 -> 44
+	42 -> 49
+	42 -> 50
+	5[label= statementLis1]
+	5 -> 6
+	5 -> 42
+	53[label= i]
+	54[label= "="]
+	55[label= <Analizador_Semantico_Julia.expression1 object at 0x000001E59A51D9F0>]
+	59[label= n]
+	58[label= factorId]
+	58 -> 59
+	57[label= term1]
+	57 -> 58
+	56[label= expression1]
+	56 -> 57
+	52[label= iterable1]
+	52 -> 53
+	52 -> 54
+	52 -> 55
+	52 -> 56
+	62[label= sumx]
+	67[label= i]
+	66[label= factorId]
+	66 -> 67
+	65[label= term1]
+	65 -> 66
+	64[label= expression1]
+	64 -> 65
+	63[label= arrayIdList2]
+	63 -> 64
+	68[label= "="]
+	69[label= "="]
+	61[label= statement15]
+	61 -> 62
+	61 -> 63
+	61 -> 68
+	61 -> 69
+	60[label= statementLis1]
+	60 -> 61
+	51[label= statement9]
+	51 -> 52
+	51 -> 60
+	4[label= statementLis1]
+	4 -> 5
+	4 -> 51
+	72[label= "@show"]
+	71[label= @show]
+	71 -> 72
+	78[label= x]
+	77[label= factorId]
+	77 -> 78
+	76[label= term1]
+	76 -> 77
+	75[label= expression1]
+	75 -> 76
+	80[label= ""hola""]
+	79[label= String]
+	79 -> 80
+	74[label= stringList7]
+	74 -> 75
+	74 -> 79
+	84[label= n]
+	83[label= factorId]
+	83 -> 84
+	82[label= term1]
+	82 -> 83
+	81[label= expression1]
+	81 -> 82
+	73[label= stringList2]
+	73 -> 74
+	73 -> 81
+	70[label= statement11]
+	70 -> 71
+	70 -> 73
+	3[label= statementLis1]
+	3 -> 4
+	3 -> 70
+	2[label= block]
+	2 -> 3
+	1[label= program]
+	1->2
+	}
