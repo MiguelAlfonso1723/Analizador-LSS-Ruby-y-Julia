@@ -138,7 +138,7 @@ def t_error(t):
 #
 #     return files[int(numArchivo) - 1]
 #
-# directorio = 'C:/Users/MIGUEL ALFONSO/Pictures/Prueba Analizador/Ruby/'
+# directorio = 'C:/Users/MIGUEL ALFONSO/Pictures/Prueba Analizador/Analizador_Ruby/'
 # archivo = buscarFicheros(directorio)
 # test = directorio + archivo
 # fp = codecs.open(test, "r", "utf-8")

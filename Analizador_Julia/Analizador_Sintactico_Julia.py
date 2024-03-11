@@ -5,6 +5,7 @@ import re
 from Analizador_Lexico_Julia import tokens
 from Analizador_Semantico_Julia import *
 from sys import stdin
+import subprocess
 
 precedencia = (
     ('right', 'ID', 'using', 'if', 'for', 'while', 'println', 'print', 'SHOW'),
@@ -823,7 +824,8 @@ def traducir(result):
 
 
 directorio = 'C:/Users/MIGUEL ALFONSO/Pictures/Prueba Analizador/Julia/'
-archivo = buscarFicheros(directorio)
+#archivo = buscarFicheros(directorio)
+archivo = 'Ejecutable.jl'
 test = directorio + archivo
 fp = codecs.open(test, "r", "utf-8")
 cadena = fp.read()
@@ -836,3 +838,15 @@ result.imprimir(" ")
 # print(result.traducir())
 
 traducir(result)
+
+
+
+# Ejecuta el archivo Python y captura la salida
+try:
+    resultado_bytes = subprocess.check_output(["python", "Analizador_Sintactico_Julia.py"])
+    # Decodifica los bytes a una cadena de texto (UTF-8 por defecto)
+    resultado = resultado_bytes.decode("utf-8")
+    print("Resultados obtenidos:")
+    print(resultado)
+except subprocess.CalledProcessError as e:
+    print(f"Error al ejecutar el archivo: {e}")

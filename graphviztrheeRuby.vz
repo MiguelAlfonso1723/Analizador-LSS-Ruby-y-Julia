@@ -1,347 +1,95 @@
 digraph G {
-	19[label= "'descriptive_statistics'"]
-	18[label= statement25]
-	18 -> 19
-	17[label= statementLis1]
-	17 -> 18
-	21[label= x]
-	22[label= "="]
-	30[label= 3]
-	29[label= factorNumber]
-	29 -> 30
-	28[label= term1]
-	28 -> 29
-	27[label= expression1]
-	27 -> 28
-	26[label= optionList1]
-	26 -> 27
-	32[label= ".to_s"]
-	31[label= functionCosine]
-	31 -> 32
-	25[label= factor7]
-	25 -> 26
-	25 -> 31
-	24[label= term1]
-	24 -> 25
-	23[label= expression1]
-	23 -> 24
-	20[label= statement1]
-	20 -> 21
-	20 -> 22
-	20 -> 23
-	16[label= statementLis1]
+	6[label= colores]
+	7[label= "="]
+	17[label= "'rojo'"]
+	16[label= String2]
 	16 -> 17
-	16 -> 20
-	34[label= y]
-	35[label= "="]
-	41[label= ""4""]
-	40[label= String]
-	40 -> 41
-	39[label= String]
-	39 -> 40
-	43[label= ".to_i"]
-	42[label= functionSine]
-	42 -> 43
-	38[label= factor8]
-	38 -> 39
-	38 -> 42
-	37[label= term1]
-	37 -> 38
-	36[label= expression1]
-	36 -> 37
-	33[label= statement1]
-	33 -> 34
-	33 -> 35
-	33 -> 36
-	15[label= statementLis1]
+	15[label= String]
 	15 -> 16
-	15 -> 33
-	45[label= y]
-	46[label= "="]
-	52[label= ""4""]
-	51[label= String]
-	51 -> 52
-	50[label= String]
-	50 -> 51
-	54[label= ".to_f"]
-	53[label= functionExponential]
-	53 -> 54
-	49[label= factor8]
-	49 -> 50
-	49 -> 53
-	48[label= term1]
-	48 -> 49
-	47[label= expression1]
-	47 -> 48
-	44[label= statement1]
-	44 -> 45
-	44 -> 46
-	44 -> 47
-	14[label= statementLis1]
+	14[label= arrayList2]
 	14 -> 15
-	14 -> 44
-	56[label= c]
-	57[label= "="]
-	59[label= "gets.chomp"]
-	58[label= KeyEntry1]
-	58 -> 59
-	55[label= statement14]
-	55 -> 56
-	55 -> 57
-	55 -> 58
-	13[label= statementLis1]
+	20[label= "'azul'"]
+	19[label= String2]
+	19 -> 20
+	18[label= String]
+	18 -> 19
+	13[label= arrayList6]
 	13 -> 14
-	13 -> 55
-	61[label= d]
-	62[label= "="]
-	64[label= "gets.chomp"]
-	65[label= ".to_i"]
-	63[label= KeyEntry2]
-	63 -> 64
-	63 -> 65
-	60[label= statement14]
-	60 -> 61
-	60 -> 62
-	60 -> 63
-	12[label= statementLis1]
+	13 -> 18
+	23[label= "'verde'"]
+	22[label= String2]
+	22 -> 23
+	21[label= String]
+	21 -> 22
+	12[label= arrayList6]
 	12 -> 13
-	12 -> 60
-	67[label= data]
-	68[label= "="]
-	78[label= 10]
-	77[label= factorNumber]
-	77 -> 78
-	76[label= term1]
-	76 -> 77
-	75[label= expression1]
-	75 -> 76
-	74[label= arrayList1]
-	74 -> 75
-	82[label= 20]
-	81[label= factorNumber]
-	81 -> 82
-	80[label= term1]
-	80 -> 81
-	79[label= expression1]
-	79 -> 80
-	73[label= arrayList5]
-	73 -> 74
-	73 -> 79
-	86[label= 30]
-	85[label= factorNumber]
-	85 -> 86
-	84[label= term1]
-	84 -> 85
-	83[label= expression1]
-	83 -> 84
-	72[label= arrayList5]
-	72 -> 73
-	72 -> 83
-	90[label= 40]
-	89[label= factorNumber]
-	89 -> 90
-	88[label= term1]
-	88 -> 89
-	87[label= expression1]
-	87 -> 88
-	71[label= arrayList5]
-	71 -> 72
-	71 -> 87
-	94[label= 50]
-	93[label= factorNumber]
-	93 -> 94
-	92[label= term1]
-	92 -> 93
-	91[label= expression1]
-	91 -> 92
-	70[label= arrayList5]
-	70 -> 71
-	70 -> 91
-	69[label= array1]
-	69 -> 70
-	66[label= statement5]
-	66 -> 67
-	66 -> 68
-	66 -> 69
-	11[label= statementLis1]
+	12 -> 21
+	26[label= "'amarillo'"]
+	25[label= String2]
+	25 -> 26
+	24[label= String]
+	24 -> 25
+	11[label= arrayList6]
 	11 -> 12
-	11 -> 66
-	96[label= media]
-	97[label= "="]
-	105[label= data]
-	104[label= factorId]
-	104 -> 105
-	103[label= term1]
-	103 -> 104
-	102[label= expression1]
-	102 -> 103
-	101[label= optionList1]
-	101 -> 102
-	107[label= ".mean"]
-	106[label= functionMean]
-	106 -> 107
-	100[label= factor8]
-	100 -> 101
-	100 -> 106
-	99[label= term1]
-	99 -> 100
-	98[label= expression1]
-	98 -> 99
-	95[label= statement1]
-	95 -> 96
-	95 -> 97
-	95 -> 98
-	10[label= statementLis1]
+	11 -> 24
+	29[label= "'negro'"]
+	28[label= String2]
+	28 -> 29
+	27[label= String]
+	27 -> 28
+	10[label= arrayList6]
 	10 -> 11
-	10 -> 95
-	109[label= mediana]
-	110[label= "="]
-	118[label= data]
-	117[label= factorId]
-	117 -> 118
-	116[label= term1]
-	116 -> 117
-	115[label= expression1]
-	115 -> 116
-	114[label= optionList1]
-	114 -> 115
-	120[label= ".median"]
-	119[label= functionMedian]
-	119 -> 120
-	113[label= factor8]
-	113 -> 114
-	113 -> 119
-	112[label= term1]
-	112 -> 113
-	111[label= expression1]
-	111 -> 112
-	108[label= statement1]
-	108 -> 109
-	108 -> 110
-	108 -> 111
-	9[label= statementLis1]
+	10 -> 27
+	32[label= "'blanco'"]
+	31[label= String2]
+	31 -> 32
+	30[label= String]
+	30 -> 31
+	9[label= arrayList6]
 	9 -> 10
-	9 -> 108
-	122[label= varianza]
-	123[label= "="]
-	131[label= data]
-	130[label= factorId]
-	130 -> 131
-	129[label= term1]
-	129 -> 130
-	128[label= expression1]
-	128 -> 129
-	127[label= optionList1]
-	127 -> 128
-	133[label= ".variance"]
-	132[label= functionVar]
-	132 -> 133
-	126[label= factor8]
-	126 -> 127
-	126 -> 132
-	125[label= term1]
-	125 -> 126
-	124[label= expression1]
-	124 -> 125
-	121[label= statement1]
-	121 -> 122
-	121 -> 123
-	121 -> 124
-	8[label= statementLis1]
+	9 -> 30
+	8[label= array1]
 	8 -> 9
-	8 -> 121
-	135[label= desviacion_estandar]
-	136[label= "="]
-	144[label= data]
-	143[label= factorId]
-	143 -> 144
-	142[label= term1]
-	142 -> 143
-	141[label= expression1]
-	141 -> 142
-	140[label= optionList1]
-	140 -> 141
-	146[label= ".standard_deviation"]
-	145[label= functionStd]
-	145 -> 146
-	139[label= factor8]
-	139 -> 140
-	139 -> 145
-	138[label= term1]
-	138 -> 139
-	137[label= expression1]
-	137 -> 138
-	134[label= statement1]
-	134 -> 135
-	134 -> 136
-	134 -> 137
-	7[label= statementLis1]
-	7 -> 8
-	7 -> 134
-	149[label= "puts"]
-	148[label= println]
-	148 -> 149
-	153[label= ""La media es: #{media}""]
-	152[label= String]
-	152 -> 153
-	151[label= String]
-	151 -> 152
-	150[label= stringList1]
-	150 -> 151
-	147[label= statement11]
-	147 -> 148
-	147 -> 150
-	6[label= statementLis1]
-	6 -> 7
-	6 -> 147
-	156[label= "puts"]
-	155[label= println]
-	155 -> 156
-	160[label= ""La mediana es: #{mediana}""]
-	159[label= String]
-	159 -> 160
-	158[label= String]
-	158 -> 159
-	157[label= stringList1]
-	157 -> 158
-	154[label= statement11]
-	154 -> 155
-	154 -> 157
-	5[label= statementLis1]
+	5[label= statement5]
 	5 -> 6
-	5 -> 154
-	163[label= "puts"]
-	162[label= println]
-	162 -> 163
-	167[label= ""La varianza es: #{varianza}""]
-	166[label= String]
-	166 -> 167
-	165[label= String]
-	165 -> 166
-	164[label= stringList1]
-	164 -> 165
-	161[label= statement11]
-	161 -> 162
-	161 -> 164
+	5 -> 7
+	5 -> 8
 	4[label= statementLis1]
 	4 -> 5
-	4 -> 161
-	170[label= "puts"]
-	169[label= println]
-	169 -> 170
-	174[label= ""La desviación estándar es: #{desviacion_estandar}""]
-	173[label= String]
-	173 -> 174
-	172[label= String]
-	172 -> 173
-	171[label= stringList1]
-	171 -> 172
-	168[label= statement11]
-	168 -> 169
-	168 -> 171
+	37[label= colores]
+	36[label= factorId]
+	36 -> 37
+	35[label= term1]
+	35 -> 36
+	34[label= expression1]
+	34 -> 35
+	39[label= "do"]
+	40[label= color]
+	38[label= iterable2]
+	38 -> 39
+	38 -> 40
+	44[label= "puts"]
+	43[label= println]
+	43 -> 44
+	48[label= color]
+	47[label= factorId]
+	47 -> 48
+	46[label= term1]
+	46 -> 47
+	45[label= expression1]
+	45 -> 46
+	42[label= statement11]
+	42 -> 43
+	42 -> 45
+	41[label= statementLis1]
+	41 -> 42
+	33[label= statement2]
+	33 -> 34
+	33 -> 38
+	33 -> 41
 	3[label= statementLis1]
 	3 -> 4
-	3 -> 168
+	3 -> 33
 	2[label= block]
 	2 -> 3
 	1[label= program]

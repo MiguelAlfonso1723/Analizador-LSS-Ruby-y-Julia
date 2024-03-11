@@ -703,7 +703,7 @@ def buscarFicheros(directorio):
                 respuesta = True
                 break
     print("Has escogido \"%s\" \n" % files[int(numArchivo) - 1])
-
+    print(files[int(numArchivo) - 1])
     return files[int(numArchivo) - 1]
 
 
@@ -715,7 +715,8 @@ def traducir(result):
 
 
 directorio = 'C:/Users/MIGUEL ALFONSO/Pictures/Prueba Analizador/Ruby/'
-archivo = buscarFicheros(directorio)
+#archivo = buscarFicheros(directorio)
+archivo = 'Ejecutable.rb'
 test = directorio + archivo
 fp = codecs.open(test, "r", "utf-8")
 cadena = fp.read()
@@ -728,3 +729,4 @@ result.imprimir(" ")
 # print(result.traducir())
 
 traducir(result)
+
