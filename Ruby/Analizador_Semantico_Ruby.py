@@ -78,6 +78,7 @@ class block(Nodo):
 
         return id
 
+
 class statementList1(Nodo):
     def __init__(self, son1, name):
         self.name = name
@@ -98,7 +99,6 @@ class statementList1(Nodo):
         txt += id + " -> " + son1 + "\n\t"
 
         return id
-
 
 class statementList2(Nodo):
     def __init__(self, son1, son2, name):
@@ -154,26 +154,6 @@ class statement1(Nodo):
 
         return id
 
-class statement2(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
 
 class statement3(Nodo):
     def __init__(self, son1, son2, son3, name):
@@ -371,22 +351,22 @@ class statement8(Nodo):
 
         return id
 
-
-
-
-class statement9(Nodo):
-    def __init__(self, son1, son2, name):
+class statement8_1(Nodo):
+    def __init__(self, son1, son2, son3, name):
         self.name = name
         self.son1 = son1
         self.son2 = son2
+        self.son3 = son3
 
     def imprimir(self, ident):
         self.son1.imprimir(" " + ident)
 
-        if type(self.son2) == type(tuple()):
-            self.son2[0].imprimir(" " + ident)
+        self.son2.imprimir(" " + ident)
+
+        if type(self.son3) == type(tuple()):
+            self.son3[0].imprimir(" " + ident)
         else:
-            self.son2.imprimir(" " + ident)
+            self.son3.imprimir(" " + ident)
 
         print(ident + "Nodo: " + self.name)
 
@@ -396,13 +376,164 @@ class statement9(Nodo):
 
         son1 = self.son1.traducir()
         son2 = self.son2.traducir()
+        son3 = self.son3.traducir()
+
 
         txt += id + "[label= " + self.name + "]" + "\n\t"
         txt += id + " -> " + son1 + "\n\t"
         txt += id + " -> " + son2 + "\n\t"
+        txt += id + " -> " + son3 + "\n\t"
 
         return id
 
+class statement8_2(Nodo):
+    def __init__(self, son1, son2, son3, name):
+        self.name = name
+        self.son1 = son1
+        self.son2 = son2
+        self.son3 = son3
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+
+        if type(self.son2) == type(tuple()):
+            self.son2[0].imprimir(" " + ident)
+        else:
+            self.son2.imprimir(" " + ident)
+
+        if type(self.son3) == type(tuple()):
+            self.son3[0].imprimir(" " + ident)
+        else:
+            self.son3.imprimir(" " + ident)
+
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+        son2 = self.son2.traducir()
+        son3 = self.son3.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son2 + "\n\t"
+        txt += id + " -> " + son3 + "\n\t"
+
+        return id
+
+class statement9(Nodo):
+    def __init__(self, son1, son2, son3, son4, son5, name):
+        self.name = name
+        self.son1 = son1
+        self.son2 = son2
+        self.son3 = son3
+        self.son4 = son4
+        self.son5 = son5
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+        self.son2.imprimir(" " + ident)
+        self.son3.imprimir(" " + ident)
+        self.son4.imprimir(" " + ident)
+
+        if type(self.son2) == type(tuple()):
+            self.son5[0].imprimir(" " + ident)
+        else:
+            self.son5.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+        son2 = self.son2.traducir()
+        son3 = self.son3.traducir()
+        son4 = self.son4.traducir()
+        son5 = self.son5.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son2 + "\n\t"
+        txt += id + " -> " + son3 + "\n\t"
+        txt += id + " -> " + son4 + "\n\t"
+        txt += id + " -> " + son5 + "\n\t"
+
+        return id
+
+class statement2(Nodo):
+    def __init__(self, son1, son2, son3, name):
+        self.name = name
+        self.son1 = son1
+        self.son2 = son2
+        self.son3 = son3
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+        self.son2.imprimir(" " + ident)
+
+        if type(self.son3) == type(tuple()):
+            self.son3[0].imprimir(" " + ident)
+        else:
+            self.son3.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+        son2 = self.son2.traducir()
+        son3 = self.son3.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son2 + "\n\t"
+        txt += id + " -> " + son3 + "\n\t"
+
+        return id
+
+class statement2_1(Nodo):
+    def __init__(self, son1, son3, son4, son5, name):
+        self.name = name
+        self.son1 = son1
+        self.son3 = son3
+        self.son4 = son4
+        self.son5 = son5
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+        self.son3.imprimir(" " + ident)
+        self.son4.imprimir(" " + ident)
+
+        if type(self.son5) == type(tuple()):
+            self.son5[0].imprimir(" " + ident)
+        else:
+            self.son5.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+        son3 = self.son3.traducir()
+        son4 = self.son4.traducir()
+        son5 = self.son5.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son3 + "\n\t"
+        txt += id + " -> " + son4 + "\n\t"
+        txt += id + " -> " + son5 + "\n\t"
+
+        return id
 
 
 class statement10(Nodo):
@@ -781,7 +912,49 @@ class statement22(Nodo):
 
         return id
 
-class statement23(Nodo):
+class statement25(Nodo):
+    def __init__(self, son1, name):
+        self.name = name
+        self.son1 = son1
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+
+        return id
+
+class keyEntry1(Nodo):
+    def __init__(self, son1, name):
+        self.name = name
+        self.son1 = son1
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+
+        return id
+
+class keyEntry2(Nodo):
     def __init__(self, son1, son2, name):
         self.name = name
         self.son1 = son1
@@ -806,7 +979,7 @@ class statement23(Nodo):
 
         return id
 
-class statement24(Nodo):
+class keyEntry3(Nodo):
     def __init__(self, son1, son2, name):
         self.name = name
         self.son1 = son1
@@ -943,15 +1116,19 @@ class elseifList2(Nodo):
 
         return id
 
-
-
-class libreries1(Nodo):
-    def __init__(self, son1, name):
+class whenList1(Nodo):
+    def __init__(self, son1, son2, name):
         self.name = name
         self.son1 = son1
+        self.son2 = son2
 
     def imprimir(self, ident):
         self.son1.imprimir(" " + ident)
+
+        if type(self.son2) == type(tuple()):
+            self.son2[0].imprimir(" " + ident)
+        else:
+            self.son2.imprimir(" " + ident)
 
         print(ident + "Nodo: " + self.name)
 
@@ -960,19 +1137,30 @@ class libreries1(Nodo):
         id = incrementarContador()
 
         son1 = self.son1.traducir()
+        son2 = self.son2.traducir()
 
         txt += id + "[label= " + self.name + "]" + "\n\t"
         txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son2 + "\n\t"
 
         return id
 
-class libreries2(Nodo):
-    def __init__(self, son1, name):
+class whenList2(Nodo):
+    def __init__(self, son1, son2, son3, name):
         self.name = name
         self.son1 = son1
+        self.son2 = son2
+        self.son3 = son3
 
     def imprimir(self, ident):
         self.son1.imprimir(" " + ident)
+
+        self.son2.imprimir(" " + ident)
+
+        if type(self.son3) == type(tuple()):
+            self.son3[0].imprimir(" " + ident)
+        else:
+            self.son3.imprimir(" " + ident)
 
         print(ident + "Nodo: " + self.name)
 
@@ -981,12 +1169,15 @@ class libreries2(Nodo):
         id = incrementarContador()
 
         son1 = self.son1.traducir()
+        son2 = self.son2.traducir()
+        son3 = self.son3.traducir()
 
         txt += id + "[label= " + self.name + "]" + "\n\t"
         txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son2 + "\n\t"
+        txt += id + " -> " + son3 + "\n\t"
 
         return id
-
 class iterable1(Nodo):
     def __init__(self, son1, son2, son3, son4, name):
         self.name = name
@@ -1149,6 +1340,77 @@ class condition2(Nodo):
 
         return id
 
+class condition2(Nodo):
+    def __init__(self, son1, son2, name):
+        self.name = name
+        self.son1 = son1
+        self.son2 = son2
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+        self.son2.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+        son2 = self.son2.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son2 + "\n\t"
+
+        return id
+
+class condition3(Nodo):
+    def __init__(self, son1, son2, name):
+        self.name = name
+        self.son1 = son1
+        self.son2 = son2
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+        self.son2.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+        son2 = self.son2.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son2 + "\n\t"
+
+        return id
+
+class condition4(Nodo):
+    def __init__(self, son1, name):
+        self.name = name
+        self.son1 = son1
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+
+        return id
+
 class comparables1(Nodo):
     def __init__(self, son1, name):
         self.name = name
@@ -1169,6 +1431,7 @@ class comparables1(Nodo):
         txt += id + " -> " + son1 + "\n\t"
 
         return id
+
 
 class comparables2(Nodo):
     def __init__(self, son1, name):
@@ -2209,6 +2472,32 @@ class factor8(Nodo):
 
         return id
 
+class factor9(Nodo):
+    def __init__(self, son1, son2, name):
+        self.name = name
+        self.son1 = son1
+        self.son2 = son2
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+        self.son2.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+        son2 = self.son2.traducir()
+
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+        txt += id + " -> " + son2 + "\n\t"
+
+        return id
+
 class optionList1(Nodo):
     def __init__(self, son1, name):
         self.name = name
@@ -2234,11 +2523,9 @@ class optionList2(Nodo):
     def __init__(self, son1, son2, name):
         self.name = name
         self.son1 = son1
-        self.son2 = son2
 
     def imprimir(self, ident):
         self.son1.imprimir(" " + ident)
-        self.son2.imprimir(" " + ident)
 
         print(ident + "Nodo: " + self.name)
 
@@ -2247,11 +2534,9 @@ class optionList2(Nodo):
         id = incrementarContador()
 
         son1 = self.son1.traducir()
-        son2 = self.son2.traducir()
 
         txt += id + "[label= " + self.name + "]" + "\n\t"
         txt += id + " -> " + son1 + "\n\t"
-        txt += id + " -> " + son2 + "\n\t"
 
         return id
 
@@ -2302,6 +2587,28 @@ class optionList4(Nodo):
         txt += id + " -> " + son1 + "\n\t"
         txt += id + " -> " + son2 + "\n\t"
         txt += id + " -> " + son3 + "\n\t"
+
+        return id
+
+class optionList5(Nodo):
+    def __init__(self, son1, name):
+        self.name = name
+        self.son1 = son1
+
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
 
         return id
 
@@ -2501,6 +2808,28 @@ class stringList8(Nodo):
 
         return id
 
+class textList1(Nodo):
+    def __init__(self, son1, name):
+        self.name = name
+        self.son1 = son1
+
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+
+        return id
+
 class string1(Nodo):
     def __init__(self, son1, name):
         self.name = name
@@ -2603,6 +2932,28 @@ class string4(Nodo):
 
         return id
 
+class textList2(Nodo):
+    def __init__(self, son1, name):
+        self.name = name
+        self.son1 = son1
+
+
+    def imprimir(self, ident):
+        self.son1.imprimir(" " + ident)
+
+        print(ident + "Nodo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        son1 = self.son1.traducir()
+
+        txt += id + "[label= " + self.name + "]" + "\n\t"
+        txt += id + " -> " + son1 + "\n\t"
+
+        return id
+
 class boolean1(Nodo):
     def __init__(self, son1, name):
         self.name = name
@@ -2663,81 +3014,6 @@ class array1(Nodo):
 
         txt += id + "[label= " + self.name + "]" + "\n\t"
         txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class array2(Nodo):
-    def __init__(self, son1, son2, name):
-        self.name = name
-        self.son1 = son1
-        self.son2 = son2
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-        self.son2.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-        son2 = self.son2.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-        txt += id + " -> " + son2 + "\n\t"
-
-        return id
-
-class array3(Nodo):
-    def __init__(self, son1, son2, name):
-        self.name = name
-        self.son1 = son1
-        self.son2 = son2
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-        self.son2.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-        son2 = self.son2.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-        txt += id + " -> " + son2 + "\n\t"
-
-        return id
-
-class array4(Nodo):
-    def __init__(self, son1, son2, name):
-        self.name = name
-        self.son1 = son1
-        self.son2 = son2
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-        self.son2.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-        son2 = self.son2.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-        txt += id + " -> " + son2 + "\n\t"
 
         return id
 
@@ -2925,264 +3201,7 @@ class arrayList8(Nodo):
 
         return id
 
-class numberList1(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-
-class numberList2(Nodo):
-    def __init__(self, son1, son2, name):
-        self.name = name
-        self.son1 = son1
-        self.son2 = son2
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-        self.son2.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-        son2 = self.son2.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-        txt += id + " -> " + son2 + "\n\t"
-
-        return id
-
-class funcVecList1(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList2(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList3(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList4(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
 class funcVecList5(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList6(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList7(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList8(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList9(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList10(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList11(Nodo):
     def __init__(self, son1, name):
         self.name = name
         self.son1 = son1
@@ -3308,111 +3327,6 @@ class funcVecList16(Nodo):
 
         return id
 
-class funcVecList17(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList18(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList19(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList20(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
-class funcVecList21(Nodo):
-    def __init__(self, son1, name):
-        self.name = name
-        self.son1 = son1
-
-    def imprimir(self, ident):
-        self.son1.imprimir(" " + ident)
-
-        print(ident + "Nodo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        son1 = self.son1.traducir()
-
-        txt += id + "[label= " + self.name + "]" + "\n\t"
-        txt += id + " -> " + son1 + "\n\t"
-
-        return id
-
 class Id(Nodo):
     def __init__(self, name):
         self.name = name
@@ -3443,21 +3357,6 @@ class Assign(Nodo):
 
         return id
 
-class Libreries(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Librerias: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
 class String(Nodo):
     def __init__(self, name):
         self.name = name
@@ -3474,7 +3373,7 @@ class String(Nodo):
 
         return id
 
-class readline(Nodo):
+class GetsChomp(Nodo):
     def __init__(self, name):
         self.name = name
 
@@ -3485,7 +3384,7 @@ class readline(Nodo):
         global txt
         id = incrementarContador()
 
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
+        txt += id + "[label= \"" + str(self.name) + "\"]" + "\n\t"
 
         return id
 
@@ -3652,171 +3551,6 @@ class Minus(Nodo):
 
         return id
 
-class Sin(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Seno: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Cos(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Coseno: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Exp(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Exponencial: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Log(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Logaritmo Natural: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Abs(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Valor Absoluto: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Sqrt(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Raiz Cuadrada: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-
-class Sign(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Signo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Round(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Redondear: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Exp(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Exponencial: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Rand(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Random: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Zeros(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Cero(s): " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
 
 class Parse(Nodo):
     def __init__(self, name):
@@ -3921,33 +3655,6 @@ class Number(Nodo):
 
         return id
 
-class TwoDots(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Dos puntos: " + str(self.name))
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-        txt += id + "[label= " + str(self.name) + "]" + "\n\t"
-
-        return id
-
-class Range(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Rango: " + str(self.name))
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-        txt += id + "[label= " + str(self.name) + "]" + "\n\t"
-
-        return id
 
 class Text(Nodo):
     def __init__(self, name):
@@ -3994,162 +3701,12 @@ class Falses(Nodo):
 
         return id
 
-class Maximum(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Maximo valor del Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Minimum(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Minimo valor del Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class FindMax(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Maximo valor del Arreglo y posicion: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class FindMin(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Minimo valor del Arreglo y posicion: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
 class Length(Nodo):
     def __init__(self, name):
         self.name = name
 
     def imprimir(self, ident):
         print(ident + "Tamano Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Sort(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Ordenar Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class SortRows(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Ordenar Filas Matriz: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Sum(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Suma Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Prod(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Producto Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class CumSum(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Suma Acumulada Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class CumProd(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Producto Acumulada Arreglo: " + self.name)
 
     def traducir(self):
         global txt
@@ -4219,87 +3776,12 @@ class Var(Nodo):
 
         return id
 
-class Cov(Nodo):
+class Sum(Nodo):
     def __init__(self, name):
         self.name = name
 
     def imprimir(self, ident):
-        print(ident + "Covarianza Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Mode(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Moda Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Push(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Push Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Append(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Append Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Pop(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Pop Arreglo: " + self.name)
-
-    def traducir(self):
-        global txt
-        id = incrementarContador()
-
-        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
-
-        return id
-
-class Splice(Nodo):
-    def __init__(self, name):
-        self.name = name
-
-    def imprimir(self, ident):
-        print(ident + "Splice Arreglo: " + self.name)
+        print(ident + "Varianza Arreglo: " + self.name)
 
     def traducir(self):
         global txt
@@ -4354,7 +3836,7 @@ class AssigMinus(Nodo):
 
         return id
 
-class Println(Nodo):
+class Puts(Nodo):
     def __init__(self, name):
         self.name = name
 
@@ -4384,12 +3866,72 @@ class Print(Nodo):
 
         return
 
-class Show(Nodo):
+class ToStr(Nodo):
     def __init__(self, name):
         self.name = name
 
     def imprimir(self, ident):
-        print(ident + "imprimir con @show: " + self.name)
+        print(ident + "parsear a Sting: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
+
+        return id
+
+class ToInt(Nodo):
+    def __init__(self, name):
+        self.name = name
+
+    def imprimir(self, ident):
+        print(ident + "Parsear a Int: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
+
+        return id
+
+class ToFlo(Nodo):
+    def __init__(self, name):
+        self.name = name
+
+    def imprimir(self, ident):
+        print(ident + "Parsear a Flo: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
+
+        return id
+
+class Do(Nodo):
+    def __init__(self, name):
+        self.name = name
+
+    def imprimir(self, ident):
+        print(ident + "Do: " + self.name)
+
+    def traducir(self):
+        global txt
+        id = incrementarContador()
+
+        txt += id + "[label= \"" + self.name + "\"]" + "\n\t"
+
+        return id
+
+class Dot(Nodo):
+    def __init__(self, name):
+        self.name = name
+
+    def imprimir(self, ident):
+        print(ident + "Punto: " + self.name)
 
     def traducir(self):
         global txt

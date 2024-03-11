@@ -2,14 +2,15 @@ import ply.lex as lex
 import codecs
 import os
 
-reservadas = ['end', 'if', 'elsif', 'while', 'else', 'times', 'each', 'puts', 'print', 'gets.chomp',
-              'to_i', 'string'
+reservadas = ['end', 'if', 'elsif', 'while', 'else', 'true', 'false', 'puts', 'print', 'case', 'when', 'do',
+              'unless', 'and', 'or', 'not', 'require'
 ]
 
 tokens = reservadas + ['ID', 'NUMBER', 'FLOAT', 'TEXT', 'TEXT2', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
                        'EXPO', 'MOD', 'ASSIGN', 'NE', 'LT', 'LTE', 'GT', 'GTE', 'EQUAL',
-                       'AND', 'OR', 'NOT', 'LPARENT', 'RPARENT', 'COMMA', 'SEMMICOLOM', 'TWODOT',
-                       'LSQUARE', 'RSQUARE', 'ASSIGPLUS', 'ASSIGMINUS', 'SHOW'
+                       'AND', 'OR', 'NOT', 'LPARENT', 'RPARENT', 'COMMA',
+                       'LSQUARE', 'RSQUARE', 'ASSIGPLUS', 'ASSIGMINUS', 'BARR', 'MEAN', 'MEDIAN',
+                       'VARIANCE', 'LENGTH', 'STANDAR', 'SUM', 'KEYB1', 'TOINT', 'TOSTR', 'TOFLO', 'CICLE1', 'CICLE2', 'CICLE3'
 ]
 
 
@@ -34,14 +35,40 @@ t_NOT = r'[!]'
 t_LPARENT = r'\('
 t_RPARENT = r'\)'
 t_COMMA = r','
-t_SEMMICOLOM = r';'
-t_TWODOT = r'\:'
 t_LSQUARE = r'\['
 t_RSQUARE = r'\]'
 t_ASSIGPLUS = r'\+\='
 t_ASSIGMINUS = r'\-\='
-t_SHOW = r'\@show'
+t_BARR = r'\|'
+t_MEAN = r'\.mean'
+t_MEDIAN = r'\.median'
+t_VARIANCE = r'\.variance'
+t_LENGTH = r'\.length'
+t_CICLE1 = r'\.times'
+t_CICLE2 = r'\.each'
+t_SUM = r'\.sum'
 
+def t_CICLE3(t):
+    '\.each_with_index'
+    return t
+def t_STANDAR(t):
+    r'\.standard_deviation'
+    return t
+def t_KEYB1(t):
+    r'gets\.chomp'
+    return t
+
+def t_TOINT(t):
+    r'\.to_i'
+    return t
+
+def t_TOSTR(t):
+    r'\.to_s'
+    return t
+
+def t_TOFLO(t):
+    r'\.to_f'
+    return t
 
 def t_ID(t):
     r'[a-zA-Z_$][a-zA-Z0-9_$]*'
@@ -111,7 +138,7 @@ def t_error(t):
 #
 #     return files[int(numArchivo) - 1]
 #
-# directorio = 'C:/Users/MIGUEL ALFONSO/Pictures/Prueba Analizador/Ruby'
+# directorio = 'C:/Users/MIGUEL ALFONSO/Pictures/Prueba Analizador/Ruby/'
 # archivo = buscarFicheros(directorio)
 # test = directorio + archivo
 # fp = codecs.open(test, "r", "utf-8")

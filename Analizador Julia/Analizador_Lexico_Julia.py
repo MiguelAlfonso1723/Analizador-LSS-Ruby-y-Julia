@@ -11,8 +11,8 @@ reservadas = ['end', 'if', 'elseif', 'while', 'else', 'for', 'println', 'print',
 
 tokens = reservadas + ['ID', 'NUMBER', 'FLOAT', 'TEXT', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
                        'EXPO', 'MOD', 'ASSIGN', 'NE', 'LT', 'LTE', 'GT', 'GTE', 'EQUAL',
-                       'AND', 'OR', 'NOT', 'LPARENT', 'RPARENT', 'COMMA', 'SEMMICOLOM', 'TWODOT',
-                       'LSQUARE', 'RSQUARE', 'ASSIGPLUS', 'ASSIGMINUS', 'SHOW', 'PUSH', 'APPEND', 'POP', 'SPLICE'
+                       'AND', 'OR', 'NOT', 'LPARENT', 'RPARENT', 'COMMA', 'SEMMICOLOM',
+                       'LSQUARE', 'RSQUARE', 'ASSIGPLUS', 'ASSIGMINUS', 'SHOW', 'PUSH', 'APPEND', 'POP', 'SPLICE', 'TWODOT'
 ]
 
 

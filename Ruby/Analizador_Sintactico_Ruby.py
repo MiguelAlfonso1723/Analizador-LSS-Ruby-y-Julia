@@ -2,24 +2,20 @@ import ply.yacc as yacc
 import os
 import codecs
 import re
-from Analizador_Lexico_Julia import tokens
-from Analizador_Semantico_Julia import *
+from Analizador_Lexico_Ruby import tokens
+from Analizador_Semantico_Ruby import *
 from sys import stdin
 
 precedencia = (
-    ('right', 'ID', 'using', 'if', 'for', 'while', 'println', 'print', 'SHOW'),
-    ('left', 'Statistics', 'StatsBase'),
-    ('right', 'sin', 'cos', 'exp', 'log', 'abs', 'sqrt', 'round', 'sign', 'rand', 'parse', 'string'),
-    ('right', 'maximum', 'minimum', 'findmax', 'findmin', 'length', 'sort', 'sortrows', 'sum', 'prod', 'cumsum', 'cumprod', 'mean', 'std', 'median', 'var', 'cov', 'mode', 'PUSH', 'APPEND', 'POP', 'SPLICE'),
+    ('right', 'ID', 'require', 'case', 'unless', 'if', 'CICLE1', 'CICLE2', 'CICLE3', 'while', 'puts', 'print', 'when', 'unless'),
+    ('right', 'MEAN', 'STANDAR', 'MEDIAN', 'VARIANCE','LENGHT', 'KEYB1', 'TOINT', 'TOSTR', 'TOFLO', 'SUM'),
     ('right', 'true', 'false'),
-    ('right', 'ASSIGN', 'ASSIGPLUS'),
-    ('left', 'COMMA'),
-    ('right', 'TWODOTS', 'in'),
-    ('left', 'SEMMICOLOM'),
+    ('right', 'ASSIGN', 'ASSIGPLUS', 'ASSIGMINUS'),
+    ('left', 'COMMA', 'BARR'),
     ('left', 'NE'),
     ('left', 'EQUAL'),
     ('left', 'LT', 'LTE', 'GT', 'GTE'),
-    ('left', 'AND', 'OR'),
+    ('left', 'AND', 'OR', 'and', 'or'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE', 'EXPO', 'MOD'),
     ('left', 'LPARENT', 'RPARENT'),
@@ -38,6 +34,7 @@ def p_block(p):
     p[0] = block(p[1], "block")
     # print ("block")
 
+
 def p_statementList1(p):
     '''statementList : statement'''
     p[0] = statementList1(p[1], "statementLis1")
@@ -46,17 +43,11 @@ def p_statementList1(p):
 def p_statementList2(p):
     '''statementList : statementList statement'''
     p[0] = statementList2(p[1], p[2], "statementLis1")
-    #print("StatementList1")
+    #print("StatementList2")
 def p_statement1(p):
     '''statement : ID ASSIGN expression'''
     p[0] = statement1(Id(p[1]), Assign(p[2]), p[3], "statement1")
     # print ("statement 1")
-
-
-def p_statement2(p):
-    '''statement : using libreries'''
-    p[0] = statement2(p[2], "statement2")
-    # print ("statement 2")
 
 
 def p_statement3(p):
@@ -94,10 +85,30 @@ def p_statement8(p):
     p[0] = statement8(p[2], p[3], p[4], p[6],  "statement8")
     # print ("statement 8")
 
+def p_statement8_1(p):
+    '''statement : case comparables whenList else statementList end'''
+    p[0] = statement8_1(p[2], p[3], p[5], "statement8_1")
+    # print ("statement 8_1")
+
+def p_statement8_2(p):
+    '''statement : unless conditionList statementList else statementList end'''
+    p[0] = statement8_2(p[2], p[3], p[5], "statement8")
+    # print ("statement 8")
+
 def p_statement9(p):
-    '''statement : for iterable statementList end'''
-    p[0] = statement9(p[2], p[3], "statement9")
+    '''statement : expression CICLE1 iterable statementList end'''
+    p[0] = statement9(p[1], p[3], Id(p[4]), p[5], "statement9")
     # print ("statement 9")
+
+def p_statement2(p):
+    '''statement : expression CICLE2 iterable statementList end'''
+    p[0] = statement2(p[1], p[3], p[4], "statement2")
+    # print ("statement 2")
+
+def p_statement2_1(p):
+    '''statement : expression CICLE3 do BARR ID COMMA ID BARR statementList end'''
+    p[0] = statement2_1(p[1], Id(p[5]), Id(p[7]), p[9], "statement2")
+    # print ("statement 2")
 
 
 def p_statement10(p):
@@ -107,25 +118,25 @@ def p_statement10(p):
 
 
 def p_statement11(p):
-    '''statement : printList LPARENT stringList RPARENT'''
-    p[0] = statement11(p[1], p[3], "statement11")
+    '''statement : printList stringList'''
+    p[0] = statement11(p[1], p[2], "statement11")
     # print ("statement 11")
 
 
 def p_statement12(p):
-    '''statement : printList LPARENT expression RPARENT'''
-    p[0] = statement12(p[1], p[3], "statement11")
+    '''statement : printList expression'''
+    p[0] = statement12(p[1], p[2], "statement11")
     # print ("statement 12")
 
 
 def p_statement13(p):
-    '''statement : printList LPARENT boolean RPARENT'''
-    p[0] = statement13(p[1], p[3], "statement13")
+    '''statement : printList boolean'''
+    p[0] = statement13(p[1], p[2], "statement13")
     # print ("statement 13")
 
 def p_statement14(p):
-    '''statement : ID ASSIGN readline LPARENT RPARENT'''
-    p[0] = statement14(Id(p[1]), Assign(p[2]), readline(p[3]), "statement14")
+    '''statement : ID ASSIGN KeyEntry'''
+    p[0] = statement14(Id(p[1]), Assign(p[2]), p[3], "statement14")
     # print ("statement 14")
 
 def p_statement15(p):
@@ -167,20 +178,30 @@ def p_statement21(p):
     # print ("statement 21")
 
 def p_statement22(p):
-    '''statement : printList LPARENT array RPARENT'''
-    p[0] = statement22(p[1], p[3], "statement22")
+    '''statement : printList array'''
+    p[0] = statement22(p[1], p[2], "statement22")
     # print ("statement 22")
 
-def p_statement23(p):
-    '''statement : funcList LPARENT optionList RPARENT'''
-    p[0] = statement22(p[1], p[3], "statement21")
-    # print ("statement 23")
 
-def p_statement24(p):
-    '''statement : funcVecList LPARENT optionList RPARENT'''
-    p[0] = statement24(p[1], p[3], "statement24")
-    # print ("statement 24")
+def p_statement25(p):
+    '''statement : require TEXT2'''
+    p[0] = statement25(Text(p[2]), "statement25")
+    # print ("statement 25")
 
+def p_keyEntry1(p):
+    '''KeyEntry : KEYB1'''
+    p[0] = keyEntry1(GetsChomp(p[1]), "KeyEntry1")
+    # print ("KeyEntry1")
+
+def p_keyEntry2(p):
+    '''KeyEntry : KEYB1 TOINT'''
+    p[0] = keyEntry2(GetsChomp(p[1]), ToInt(p[2]),  "KeyEntry2")
+    # print ("KeyEntry2")
+
+def p_keyEntry3(p):
+    '''KeyEntry : KEYB1 TOFLO'''
+    p[0] = keyEntry3(GetsChomp(p[1]), ToFlo(p[2]),  "KeyEntry3")
+    # print ("KeyEntry3")
 def p_arrayIdList1(p):
     '''arrayIdList : expression COMMA expression'''
     p[0] = arrayIdList1(p[1], p[3], "arrayIdList1")
@@ -191,36 +212,33 @@ def p_arrayIdList2(p):
     p[0] = arrayIdList2(p[1], "arrayIdList2")
     # print ("arrayIdList2")
 
-def p_libreries1(p):
-    '''libreries : Statistics'''
-    p[0] = libreries1(Libreries(p[1]), "libreri-Statistics")
-    # print ("libreries 1")
-
-
-def p_libreries2(p):
-    '''libreries : StatsBase'''
-    p[0] = libreries2(Libreries(p[1]), "libreri-StatsBase")
-    # print ("libreries 2")
-
 
 def p_iterable1(p):
-    '''iterable : ID ASSIGN expression TWODOT expression'''
-    p[0] = iterable1(Id(p[1]), Assign(p[2]), TwoDots(p[3]), p[5], "iterable1")
+    '''iterable : do'''
+    p[0] = iterable1(Do(p[1]), "iterable1")
     # print ("itebrale 1")
 
 
 def p_iterable2(p):
-    '''iterable : expression in expression'''
-    p[0] = iterable2(p[1], p[3], "iterable2")
+    '''iterable : do BARR ID BARR'''
+    p[0] = iterable2(Do(p[1]), Id(p[3]), "iterable2")
     # print ("itebrale 2")
 
 def p_elseifList1(p):
-    '''elseifList : elseif conditionList statementList'''
+    '''elseifList : elsif conditionList statementList'''
     p[0] = elseifList1(p[2], p[3], "elseifList1")
 
 def p_elseifList2(p):
-    '''elseifList : elseifList elseif conditionList statementList'''
+    '''elseifList : elseifList elsif conditionList statementList'''
     p[0] = elseifList2(p[1], p[3], p[4], "elseifList2")
+
+def p_whenList1(p):
+    '''whenList : when comparables statementList'''
+    p[0] = whenList1(p[2], p[3], "whenList1")
+
+def p_whenList2(p):
+    '''whenList : whenList when comparables statementList'''
+    p[0] = whenList2(p[1], p[3], p[4], "whenList2")
 
 def p_conditionList1(p):
     '''conditionList : condition'''
@@ -240,10 +258,20 @@ def p_condition1(p):
 
 def p_condition2(p):
     '''condition : NOT comparables'''
-    p[0] = condition2(Not(p[1]), p[2], "condition1")
+    p[0] = condition2(Not(p[1]), p[2], "condition2")
     # print ("condition 2")
 
 
+
+def p_condition3(p):
+    '''condition : not comparables'''
+    p[0] = condition3(Not(p[1]), p[2], "condition3")
+    # print ("condition 2")
+
+def p_condition4(p):
+    '''condition : comparables'''
+    p[0] = condition4(p[1], "comparables1")
+    # print ("condition 1")
 
 def p_comparables1(p):
     '''comparables : expression'''
@@ -305,13 +333,24 @@ def p_relation6(p):
 def p_LogicRelation1(p):
     '''logicRelation : AND'''
     p[0] = LogicRelation1(And(p[1]), "And")
-    # print ("relation 7")
+    # print ("relationLogic1")
 
 
 def p_LogicRelation2(p):
     '''logicRelation : OR'''
     p[0] = LogicRelation2(Or(p[1]), "Or")
-    # print ("relation 8")
+    # print ("relationLogic2")
+
+def p_LogicRelation3(p):
+    '''logicRelation : and'''
+    p[0] = LogicRelation1(And(p[1]), "And")
+    # print ("relationLogic1")
+
+
+def p_LogicRelation24(p):
+    '''logicRelation : or'''
+    p[0] = LogicRelation2(Or(p[1]), "Or")
+    # print ("relationLogic2")
 
 def p_assigList1(p):
     '''assigList : ASSIGPLUS'''
@@ -322,16 +361,12 @@ def p_assigList2(p):
     p[0] = assignList2(AssigMinus(p[1]), "Minus Assign")
 
 def p_printList1(p):
-    '''printList : println'''
-    p[0] = printList1(Println(p[1]), "println")
+    '''printList : puts'''
+    p[0] = printList1(Puts(p[1]), "println")
 
 def p_printList2(p):
     '''printList : print'''
     p[0] = printList2(Print(p[1]), "print")
-
-def p_printList3(p):
-    '''printList : SHOW'''
-    p[0] = printList3(Show(p[1]), "@show")
 
 def p_expression1(p):
     '''expression : term'''
@@ -380,72 +415,23 @@ def p_term2(p):
 
 
 def p_funcList1(p):
-    '''funcList : sin'''
-    p[0] = funcList1(Sin(p[1]), "functionSine")
+    '''funcList : TOINT'''
+    p[0] = funcList1(ToInt(p[1]), "functionSine")
     # print "funcList 1")
 
 
 def p_funcList2(p):
-    '''funcList : cos'''
-    p[0] = funcList2(Cos(p[1]), "functionCosine")
+    '''funcList : TOSTR'''
+    p[0] = funcList2(ToStr(p[1]), "functionCosine")
     # print "funcList 2")
 
 
 def p_funcList3(p):
-    '''funcList : exp'''
-    p[0] = funcList3(Exp(p[1]), "functionExponential")
+    '''funcList : TOFLO'''
+    p[0] = funcList3(ToFlo(p[1]), "functionExponential")
     # print "funcList 3")
 
 
-def p_funcList4(p):
-    '''funcList : log'''
-    p[0] = funcList4(Log(p[1]), "functionNaturalLogarithm")
-    # print "funcList 4")
-
-
-def p_funcList5(p):
-    '''funcList : abs'''
-    p[0] = funcList5(Abs(p[1]), "functionAbsoluteValue")
-    # print "funcList 5")
-
-
-def p_funcList6(p):
-    '''funcList : sqrt'''
-    p[0] = funcList6(Sqrt(p[1]), "functionSquareRoot")
-    # print "funcList 6")
-
-
-def p_funcList7(p):
-    '''funcList : round'''
-    p[0] = funcList7(Round(p[1]), "functionRoundUp")
-    # print "funcList 7")
-
-
-def p_funcList8(p):
-    '''funcList : sign'''
-    p[0] = funcList8(Sign(p[1]), "functionSign")
-    # print "funcList 8")
-
-
-def p_funcList9(p):
-    '''funcList : rand'''
-    p[0] = funcList9(Rand(p[1]), "functionRandom")
-    # print "funcList 9")
-
-def p_funcList10(p):
-    '''funcList : zeros'''
-    p[0] = funcList10(Zeros(p[1]), "functionZeros")
-    # print "funcList 10")
-
-def p_funcList11(p):
-    '''funcList : parse'''
-    p[0] = funcList11(Parse(p[1]), "functionParse")
-    # print "funcList 11")
-
-def p_funcList12(p):
-    '''funcList : string'''
-    p[0] = funcList12(StringP(p[1]), "functionString")
-    # print "funcList 12")
 
 def p_multiplyingOperator1(p):
     '''multiplyingOperator : TIMES'''
@@ -503,15 +489,19 @@ def p_factor5(p):
 
 
 def p_factor7(p):
-    '''factor : funcList LPARENT optionList RPARENT'''
-    p[0] = factor7(p[1], p[3], "factor7")
+    '''factor : optionList funcList'''
+    p[0] = factor7(p[1], p[2], "factor7")
     # print("factor7")
 
 def p_factor8(p):
-    '''factor : funcVecList LPARENT optionList RPARENT'''
-    p[0] = factor8(p[1], p[3], "factor8")
+    '''factor :  optionList funcVecList'''
+    p[0] = factor8(p[1], p[2], "factor8")
     # print("factor8")
 
+def p_factor9(p):
+    '''factor :  String funcList'''
+    p[0] = factor9(p[1], p[2], "factor8")
+    # print("factor8")
 
 
 def p_optionList1(p):
@@ -519,25 +509,16 @@ def p_optionList1(p):
     p[0] = optionList1(p[1], "optionList1")
     # print ("optionList1")
 
-def p_optionList2(p):
-    '''optionList : expression COMMA expression'''
-    p[0] = optionList2(p[1], p[3], "optionList2")
-    # print ("optionList2")
-
 def p_optionList3(p):
     '''optionList : array'''
     p[0] = optionList3(p[1], "optionList3")
     # print ("optionList3")
 
-def p_optionList4(p):
-    '''optionList : expression COMMA expression TWODOT expression'''
-    p[0] = optionList4(p[1], p[3], p[5], "optionList4")
-    # print ("optionList4")
+def p_optionList5(p):
+    '''optionList : String'''
+    p[0] = optionList5(p[1], "optionList5")
+    # print ("optionList5")
 
-def p_optionListempy(p):
-    '''optionList : empty'''
-    p[0] = Null()
-    # print ("optionListEmpty")
 
 def p_stringList1(p):
     '''stringList : String'''
@@ -545,53 +526,64 @@ def p_stringList1(p):
     #print ("StringList1")
 
 def p_stringList2(p):
-    '''stringList : stringList COMMA expression'''
+    '''stringList : stringList PLUS expression'''
     p[0] = stringList2(p[1], p[3], "stringList2")
     #print ("StringList2")
 
 def p_stringList3(p):
-    '''stringList : stringList COMMA String'''
+    '''stringList : stringList PLUS String'''
     p[0] = stringList3(p[1], p[3], "stringList3")
     #print ("StringList3")
 
 def p_stringList4(p):
-    '''stringList : stringList COMMA boolean'''
+    '''stringList : stringList PLUS boolean'''
     p[0] = stringList4(p[1], p[3], "stringList4")
     #print ("StringList4")
 
 def p_stringList5(p):
-    '''stringList : stringList COMMA array'''
+    '''stringList : stringList PLUS array'''
     p[0] = stringList5(p[1], p[3], "stringList5")
     #print ("StringList5")
 
 def p_stringList6(p):
-    '''stringList : boolean COMMA String'''
+    '''stringList : boolean PLUS String'''
     p[0] = stringList6(p[1], p[3], "stringList6")
     #print ("StringList6")
 
 def p_stringList7(p):
-    '''stringList : expression COMMA String'''
+    '''stringList : expression PLUS String'''
     p[0] = stringList7(p[1], p[3], "stringList7")
     #print ("StringList7")
 
 def p_stringList8(p):
-    '''stringList : array COMMA String'''
+    '''stringList : array PLUS String'''
     p[0] = stringList8(p[1], p[3], "stringList8")
     #print ("StringList8")
 
 def p_string1(p):
-    '''String : TEXT'''
-    p[0] = string1(Text(p[1]), "String")
+    '''String : textList'''
+    p[0] = string1(p[1], "String")
     # print("String")
 def p_string2(p):
-    '''String : String TIMES TEXT'''
-    p[0] = string2(p[1], Times(p[2]), Text(p[3]), "stringConcat")
+    '''String : String PLUS textList'''
+    p[0] = string2(p[1], Plus(p[2]), Text(p[3]), "stringConcat")
     #print("StringConcat")
 
 def p_string4(p):
-    '''String : String TIMES ID'''
-    p[0] = string4(p[1], Times(p[2]), Id(p[3]), "stringConcat2")
+    '''String : String PLUS ID'''
+    p[0] = string4(p[1], Plus(p[2]), Id(p[3]), "stringConcat2")
     #print("StringConcat2")
+
+
+def p_textList1(p):
+    '''textList : TEXT'''
+    p[0] = textList1(Text(p[1]), "String")
+    # print("String")
+
+def p_textList2(p):
+    '''textList : TEXT2'''
+    p[0] = textList2(Text(p[1]), "String2")
+    # print("String")
 
 def p_boolean1(p):
     '''boolean : true'''
@@ -607,11 +599,6 @@ def p_array1(p):
     '''array : LSQUARE arrayList RSQUARE'''
     p[0] = array1(p[2], "array1")
     # print("array1")
-
-def p_array2(p):
-    '''array : LSQUARE numberList SEMMICOLOM numberList RSQUARE'''
-    p[0] = array4(p[2], p[4], "array4")
-    # print("array4")
 
 def p_arrayList1(p):
     '''arrayList : expression'''
@@ -653,132 +640,42 @@ def p_arrayList8(p):
     p[0] = arrayList8(p[1], p[4],"arrayList8")
     #print ("arrayList8")
 
-def p_numberList1(p):
-    '''numberList : NUMBER'''
-    p[0] = numberList1(p[1], "numberList1")
-    # print ("numberList1")
-
-def p_numberList2(p):
-    '''numberList : numberList NUMBER'''
-    p[0] = numberList2(p[1], p[2], "numberList2")
-    # print ("numberList2")
-
-def p_funcVecList1(p):
-    '''funcVecList : maximum'''
-    p[0] = funcVecList1(Maximum(p[1]), "functionMaximum")
-    # print "funcVecList 1")
-
-
-def p_funcVecList2(p):
-    '''funcVecList : minimum'''
-    p[0] = funcVecList2(Minimum(p[1]), "functionMinimum")
-    # print "funcVecList 2")
-
-
-def p_funcVecList3(p):
-    '''funcVecList : findmax'''
-    p[0] = funcVecList3(FindMax(p[1]), "functionFindMax")
-    # print "funcVecList 3")
-
-
-def p_funcVecList4(p):
-    '''funcVecList : findmin'''
-    p[0] = funcVecList4(FindMin(p[1]), "functionFindMin")
-    # print "funcVecList 4")
 
 
 def p_funcVecList5(p):
-    '''funcVecList : length'''
+    '''funcVecList : LENGTH'''
     p[0] = funcVecList5(Length(p[1]), "functionLength")
     # print "funcVecList 5")
 
 
-def p_funcVecList6(p):
-    '''funcVecList : sort'''
-    p[0] = funcVecList6(Sort(p[1]), "functionSort")
-    # print "funcVecList 6")
-
-
-def p_funcVecList7(p):
-    '''funcVecList : sortrows'''
-    p[0] = funcVecList7(SortRows(p[1]), "functionSortRows")
-    # print "funcVecList 7")
-
-
-def p_funcVecList8(p):
-    '''funcVecList : sum'''
-    p[0] = funcVecList8(Sum(p[1]), "functionSum")
-    # print "funcVecList 8")
-
-
-def p_funcVecList9(p):
-    '''funcVecList : prod'''
-    p[0] = funcVecList9(Prod(p[1]), "functionProd")
-    # print "funcVecList 9")
-
-def p_funcVecList10(p):
-    '''funcVecList : cumsum'''
-    p[0] = funcVecList10(CumSum(p[1]), "functionCumSum")
-    # print "funcVecList 10")
-
-def p_funcVecList11(p):
-    '''funcVecList : cumprod'''
-    p[0] = funcVecList11(CumProd(p[1]), "functionCumProd")
-    # print "funcVecList 11")
 
 def p_funcVecList12(p):
-    '''funcVecList : mean'''
+    '''funcVecList : MEAN'''
     p[0] = funcVecList12(Mean(p[1]), "functionMean")
     # print "funcVecList 12")
 
 def p_funcVecList13(p):
-    '''funcVecList : std'''
+    '''funcVecList : STANDAR'''
     p[0] = funcVecList13(Std(p[1]), "functionStd")
     # print "funcVecList 13")
 
 def p_funcVecList14(p):
-    '''funcVecList : median'''
+    '''funcVecList : MEDIAN'''
     p[0] = funcVecList14(Median(p[1]), "functionMedian")
     # print "funcVecList 14")
 
 def p_funcVecList15(p):
-    '''funcVecList : var'''
+    '''funcVecList : VARIANCE'''
     p[0] = funcVecList15(Var(p[1]), "functionVar")
     # print "funcVecList 15")
 
 def p_funcVecList16(p):
-    '''funcVecList : cov'''
-    p[0] = funcVecList16(Cov(p[1]), "functionCov")
+    '''funcVecList : SUM'''
+    p[0] = funcVecList16(Sum(p[1]), "functionSum")
     # print "funcVecList 16")
 
-def p_funcVecList17(p):
-    '''funcVecList : mode'''
-    p[0] = funcVecList17(Mode(p[1]), "functionMode")
-    # print "funcVecList 17")
 
-def p_funcVecList18(p):
-    '''funcVecList : PUSH'''
-    p[0] = funcVecList18(Push(p[1]), "functionPush!")
-    # print "funcVecList 18")
 
-def p_funcVecList19(p):
-    '''funcVecList : APPEND'''
-    p[0] = funcVecList19(Append(p[1]), "functionAppend!")
-    # print "funcVecList 19")
-
-def p_funcVecList20(p):
-    '''funcVecList : POP'''
-    p[0] = funcVecList20(Pop(p[1]), "functionPop!")
-    # print "funcVecList 20")
-
-def p_funcVecList21(p):
-    '''funcVecList : SPLICE'''
-    p[0] = funcVecList21(Splice(p[1]), "functionSplice!")
-    # print "funcVecList 21")
-
-def p_empty(p):
-    '''empty :'''
-    pass
 
 
 def p_error(p):
@@ -811,13 +708,13 @@ def buscarFicheros(directorio):
 
 
 def traducir(result):
-    graphFile = open('graphviztrheeJulia.vz', 'w')
+    graphFile = open('../graphviztrheeRuby.vz', 'w')
     graphFile.write(result.traducir())
     graphFile.close()
     print("El programa traducido se guardo en \"graphviztrhee.vz\"")
 
 
-directorio = 'C:/Users/MIGUEL ALFONSO/Pictures/Prueba Analizador/Julia/'
+directorio = 'C:/Users/MIGUEL ALFONSO/Pictures/Prueba Analizador/Ruby/'
 archivo = buscarFicheros(directorio)
 test = directorio + archivo
 fp = codecs.open(test, "r", "utf-8")
@@ -827,7 +724,7 @@ fp.close()
 yacc.yacc()
 result = yacc.parse(cadena, debug=1)
 
-#result.imprimir(" ")
+result.imprimir(" ")
 # print(result.traducir())
 
 traducir(result)
