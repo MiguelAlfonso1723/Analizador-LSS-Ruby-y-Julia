@@ -839,14 +839,3 @@ result.imprimir(" ")
 
 traducir(result)
 
-
-
-# Ejecuta el archivo Python y captura la salida
-try:
-    resultado_bytes = subprocess.check_output(["python", "Analizador_Sintactico_Julia.py"])
-    # Decodifica los bytes a una cadena de texto (UTF-8 por defecto)
-    resultado = resultado_bytes.decode("utf-8")
-    print("Resultados obtenidos:")
-    print(resultado)
-except subprocess.CalledProcessError as e:
-    print(f"Error al ejecutar el archivo: {e}")

@@ -1,167 +1,411 @@
 digraph G {
-	10[label= n]
-	11[label= "="]
-	15[label= 8]
-	14[label= factorNumber]
+	12[label= ventas_mensuales]
+	13[label= "="]
+	30[label= 10000]
+	29[label= factorNumber]
+	29 -> 30
+	28[label= term1]
+	28 -> 29
+	27[label= expression1]
+	27 -> 28
+	26[label= arrayList1]
+	26 -> 27
+	34[label= 12000]
+	33[label= factorNumber]
+	33 -> 34
+	32[label= term1]
+	32 -> 33
+	31[label= expression1]
+	31 -> 32
+	25[label= arrayList5]
+	25 -> 26
+	25 -> 31
+	38[label= 15000]
+	37[label= factorNumber]
+	37 -> 38
+	36[label= term1]
+	36 -> 37
+	35[label= expression1]
+	35 -> 36
+	24[label= arrayList5]
+	24 -> 25
+	24 -> 35
+	42[label= 13000]
+	41[label= factorNumber]
+	41 -> 42
+	40[label= term1]
+	40 -> 41
+	39[label= expression1]
+	39 -> 40
+	23[label= arrayList5]
+	23 -> 24
+	23 -> 39
+	46[label= 14000]
+	45[label= factorNumber]
+	45 -> 46
+	44[label= term1]
+	44 -> 45
+	43[label= expression1]
+	43 -> 44
+	22[label= arrayList5]
+	22 -> 23
+	22 -> 43
+	50[label= 16000]
+	49[label= factorNumber]
+	49 -> 50
+	48[label= term1]
+	48 -> 49
+	47[label= expression1]
+	47 -> 48
+	21[label= arrayList5]
+	21 -> 22
+	21 -> 47
+	54[label= 18000]
+	53[label= factorNumber]
+	53 -> 54
+	52[label= term1]
+	52 -> 53
+	51[label= expression1]
+	51 -> 52
+	20[label= arrayList5]
+	20 -> 21
+	20 -> 51
+	58[label= 17000]
+	57[label= factorNumber]
+	57 -> 58
+	56[label= term1]
+	56 -> 57
+	55[label= expression1]
+	55 -> 56
+	19[label= arrayList5]
+	19 -> 20
+	19 -> 55
+	62[label= 19000]
+	61[label= factorNumber]
+	61 -> 62
+	60[label= term1]
+	60 -> 61
+	59[label= expression1]
+	59 -> 60
+	18[label= arrayList5]
+	18 -> 19
+	18 -> 59
+	66[label= 20000]
+	65[label= factorNumber]
+	65 -> 66
+	64[label= term1]
+	64 -> 65
+	63[label= expression1]
+	63 -> 64
+	17[label= arrayList5]
+	17 -> 18
+	17 -> 63
+	70[label= 21000]
+	69[label= factorNumber]
+	69 -> 70
+	68[label= term1]
+	68 -> 69
+	67[label= expression1]
+	67 -> 68
+	16[label= arrayList5]
+	16 -> 17
+	16 -> 67
+	74[label= 22000]
+	73[label= factorNumber]
+	73 -> 74
+	72[label= term1]
+	72 -> 73
+	71[label= expression1]
+	71 -> 72
+	15[label= arrayList5]
+	15 -> 16
+	15 -> 71
+	14[label= array1]
 	14 -> 15
-	13[label= term1]
-	13 -> 14
-	12[label= expression1]
-	12 -> 13
-	9[label= statement1]
+	11[label= statement5]
+	11 -> 12
+	11 -> 13
+	11 -> 14
+	10[label= statementLis1]
+	10 -> 11
+	76[label= promedio_ventas]
+	77[label= "="]
+	83[label= "sum"]
+	82[label= functionSum]
+	82 -> 83
+	88[label= ventas_mensuales]
+	87[label= factorId]
+	87 -> 88
+	86[label= term1]
+	86 -> 87
+	85[label= expression1]
+	85 -> 86
+	84[label= optionList1]
+	84 -> 85
+	81[label= factor8]
+	81 -> 82
+	81 -> 84
+	80[label= term1]
+	80 -> 81
+	90[label= "/"]
+	89[label= divisiongOperator]
+	89 -> 90
+	93[label= "length"]
+	92[label= functionLength]
+	92 -> 93
+	98[label= ventas_mensuales]
+	97[label= factorId]
+	97 -> 98
+	96[label= term1]
+	96 -> 97
+	95[label= expression1]
+	95 -> 96
+	94[label= optionList1]
+	94 -> 95
+	91[label= factor8]
+	91 -> 92
+	91 -> 94
+	79[label= term2]
+	79 -> 80
+	79 -> 89
+	79 -> 91
+	78[label= expression1]
+	78 -> 79
+	75[label= statement1]
+	75 -> 76
+	75 -> 77
+	75 -> 78
+	9[label= statementLis1]
 	9 -> 10
-	9 -> 11
-	9 -> 12
+	9 -> 75
+	101[label= "println"]
+	100[label= println]
+	100 -> 101
+	104[label= ""La media de las ventas mensuales es: $promedio_ventas""]
+	103[label= String]
+	103 -> 104
+	102[label= stringList1]
+	102 -> 103
+	99[label= statement11]
+	99 -> 100
+	99 -> 102
 	8[label= statementLis1]
 	8 -> 9
-	17[label= x]
-	18[label= "="]
-	23[label= "rand"]
-	22[label= functionRandom]
-	22 -> 23
-	28[label= n]
-	27[label= factorId]
-	27 -> 28
-	26[label= term1]
-	26 -> 27
-	25[label= expression1]
-	25 -> 26
-	24[label= optionList1]
-	24 -> 25
-	21[label= factor7]
-	21 -> 22
-	21 -> 24
-	20[label= term1]
-	20 -> 21
-	19[label= expression1]
-	19 -> 20
-	16[label= statement1]
-	16 -> 17
-	16 -> 18
-	16 -> 19
+	8 -> 99
+	106[label= suma_cuadrados]
+	107[label= "="]
+	112[label= "sum"]
+	111[label= functionSum]
+	111 -> 112
+	123[label= x]
+	122[label= factorId]
+	122 -> 123
+	121[label= term1]
+	121 -> 122
+	120[label= expression1]
+	120 -> 121
+	125[label= "-"]
+	124[label= subtractionOperator]
+	124 -> 125
+	128[label= promedio_ventas]
+	127[label= factorId]
+	127 -> 128
+	126[label= term1]
+	126 -> 127
+	119[label= expression3]
+	119 -> 120
+	119 -> 124
+	119 -> 126
+	118[label= optionList1]
+	118 -> 119
+	117[label= factorParentExpression]
+	117 -> 118
+	116[label= term1]
+	116 -> 117
+	130[label= "^"]
+	129[label= ExponentOperator]
+	129 -> 130
+	132[label= 2]
+	131[label= factorNumber]
+	131 -> 132
+	115[label= term2]
+	115 -> 116
+	115 -> 129
+	115 -> 131
+	114[label= expression1]
+	114 -> 115
+	113[label= optionList1]
+	113 -> 114
+	110[label= factor8]
+	110 -> 111
+	110 -> 113
+	109[label= term1]
+	109 -> 110
+	108[label= expression1]
+	108 -> 109
+	105[label= statement1]
+	105 -> 106
+	105 -> 107
+	105 -> 108
 	7[label= statementLis1]
 	7 -> 8
-	7 -> 16
-	30[label= sumx]
-	31[label= "="]
-	36[label= "zeros"]
-	35[label= functionZeros]
-	35 -> 36
-	41[label= n]
-	40[label= factorId]
-	40 -> 41
-	39[label= term1]
-	39 -> 40
-	38[label= expression1]
-	38 -> 39
-	37[label= optionList1]
-	37 -> 38
-	34[label= factor7]
-	34 -> 35
-	34 -> 37
-	33[label= term1]
-	33 -> 34
-	32[label= expression1]
-	32 -> 33
-	29[label= statement1]
-	29 -> 30
-	29 -> 31
-	29 -> 32
+	7 -> 105
+	134[label= desviacion_ventas]
+	135[label= "="]
+	140[label= "sqrt"]
+	139[label= functionSquareRoot]
+	139 -> 140
+	146[label= suma_cuadrados]
+	145[label= factorId]
+	145 -> 146
+	144[label= term1]
+	144 -> 145
+	148[label= "/"]
+	147[label= divisiongOperator]
+	147 -> 148
+	156[label= "length"]
+	155[label= functionLength]
+	155 -> 156
+	161[label= ventas_mensuales]
+	160[label= factorId]
+	160 -> 161
+	159[label= term1]
+	159 -> 160
+	158[label= expression1]
+	158 -> 159
+	157[label= optionList1]
+	157 -> 158
+	154[label= factor8]
+	154 -> 155
+	154 -> 157
+	153[label= term1]
+	153 -> 154
+	152[label= expression1]
+	152 -> 153
+	163[label= "-"]
+	162[label= subtractionOperator]
+	162 -> 163
+	166[label= 1]
+	165[label= factorNumber]
+	165 -> 166
+	164[label= term1]
+	164 -> 165
+	151[label= expression3]
+	151 -> 152
+	151 -> 162
+	151 -> 164
+	150[label= optionList1]
+	150 -> 151
+	149[label= factorParentExpression]
+	149 -> 150
+	143[label= term2]
+	143 -> 144
+	143 -> 147
+	143 -> 149
+	142[label= expression1]
+	142 -> 143
+	141[label= optionList1]
+	141 -> 142
+	138[label= factor7]
+	138 -> 139
+	138 -> 141
+	137[label= term1]
+	137 -> 138
+	136[label= expression1]
+	136 -> 137
+	133[label= statement1]
+	133 -> 134
+	133 -> 135
+	133 -> 136
 	6[label= statementLis1]
 	6 -> 7
-	6 -> 29
-	43[label= sumx]
-	48[label= 1]
-	47[label= factorNumber]
-	47 -> 48
-	46[label= term1]
-	46 -> 47
-	45[label= expression1]
-	45 -> 46
-	44[label= arrayIdList2]
-	44 -> 45
-	49[label= "="]
-	50[label= "="]
-	42[label= statement15]
-	42 -> 43
-	42 -> 44
-	42 -> 49
-	42 -> 50
+	6 -> 133
+	169[label= "println"]
+	168[label= println]
+	168 -> 169
+	172[label= ""La desviación estándar de las ventas mensuales es: $desviacion_ventas""]
+	171[label= String]
+	171 -> 172
+	170[label= stringList1]
+	170 -> 171
+	167[label= statement11]
+	167 -> 168
+	167 -> 170
 	5[label= statementLis1]
 	5 -> 6
-	5 -> 42
-	53[label= i]
-	54[label= "="]
-	55[label= <Analizador_Semantico_Julia.expression1 object at 0x000001F7E69A4820>]
-	59[label= n]
-	58[label= factorId]
-	58 -> 59
-	57[label= term1]
-	57 -> 58
-	56[label= expression1]
-	56 -> 57
-	52[label= iterable1]
-	52 -> 53
-	52 -> 54
-	52 -> 55
-	52 -> 56
-	62[label= sumx]
-	67[label= i]
-	66[label= factorId]
-	66 -> 67
-	65[label= term1]
-	65 -> 66
-	64[label= expression1]
-	64 -> 65
-	63[label= arrayIdList2]
-	63 -> 64
-	68[label= "="]
-	69[label= "="]
-	61[label= statement15]
-	61 -> 62
-	61 -> 63
-	61 -> 68
-	61 -> 69
-	60[label= statementLis1]
-	60 -> 61
-	51[label= statement9]
-	51 -> 52
-	51 -> 60
+	5 -> 167
+	174[label= varianza_ventas]
+	175[label= "="]
+	180[label= suma_cuadrados]
+	179[label= factorId]
+	179 -> 180
+	178[label= term1]
+	178 -> 179
+	182[label= "/"]
+	181[label= divisiongOperator]
+	181 -> 182
+	190[label= "length"]
+	189[label= functionLength]
+	189 -> 190
+	195[label= ventas_mensuales]
+	194[label= factorId]
+	194 -> 195
+	193[label= term1]
+	193 -> 194
+	192[label= expression1]
+	192 -> 193
+	191[label= optionList1]
+	191 -> 192
+	188[label= factor8]
+	188 -> 189
+	188 -> 191
+	187[label= term1]
+	187 -> 188
+	186[label= expression1]
+	186 -> 187
+	197[label= "-"]
+	196[label= subtractionOperator]
+	196 -> 197
+	200[label= 1]
+	199[label= factorNumber]
+	199 -> 200
+	198[label= term1]
+	198 -> 199
+	185[label= expression3]
+	185 -> 186
+	185 -> 196
+	185 -> 198
+	184[label= optionList1]
+	184 -> 185
+	183[label= factorParentExpression]
+	183 -> 184
+	177[label= term2]
+	177 -> 178
+	177 -> 181
+	177 -> 183
+	176[label= expression1]
+	176 -> 177
+	173[label= statement1]
+	173 -> 174
+	173 -> 175
+	173 -> 176
 	4[label= statementLis1]
 	4 -> 5
-	4 -> 51
-	72[label= "@show"]
-	71[label= @show]
-	71 -> 72
-	78[label= x]
-	77[label= factorId]
-	77 -> 78
-	76[label= term1]
-	76 -> 77
-	75[label= expression1]
-	75 -> 76
-	80[label= ""hola""]
-	79[label= String]
-	79 -> 80
-	74[label= stringList7]
-	74 -> 75
-	74 -> 79
-	84[label= n]
-	83[label= factorId]
-	83 -> 84
-	82[label= term1]
-	82 -> 83
-	81[label= expression1]
-	81 -> 82
-	73[label= stringList2]
-	73 -> 74
-	73 -> 81
-	70[label= statement11]
-	70 -> 71
-	70 -> 73
+	4 -> 173
+	203[label= "println"]
+	202[label= println]
+	202 -> 203
+	206[label= ""La varianza de las ventas mensuales es: $varianza_ventas""]
+	205[label= String]
+	205 -> 206
+	204[label= stringList1]
+	204 -> 205
+	201[label= statement11]
+	201 -> 202
+	201 -> 204
 	3[label= statementLis1]
 	3 -> 4
-	3 -> 70
+	3 -> 201
 	2[label= block]
 	2 -> 3
 	1[label= program]
